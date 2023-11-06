@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 08:14:13 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/03 11:20:58 by mshereme         ###   ########.fr       */
+/*   Created: 2023/10/31 13:35:19 by mshereme          #+#    #+#             */
+/*   Updated: 2023/11/06 16:33:02 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_putchar_fd(char c, int fd)
+void	ft_bzero(void *s, size_t n)
 {
-	write(fd, &c, 1);
-}
-
-static void	ft_putstr_fd(char *s, int fd)
-{
-	while (*s != '\0')
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
-}
-
-void	ft_putendl_fd(char *s, int fd)
-{
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	ft_memset(s, 0, n);
 }

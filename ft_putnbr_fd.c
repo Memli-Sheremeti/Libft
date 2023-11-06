@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 16:53:48 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/03 11:35:56 by mshereme         ###   ########.fr       */
+/*   Created: 2023/11/02 08:20:28 by mshereme          #+#    #+#             */
+/*   Updated: 2023/11/06 16:40:43 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*str;
-	size_t			i;
+	long int	nb;
 
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	nb = n;
+	if (nb < 0)
 	{
-		str[i] = (unsigned char) c;
-		i++;
+		ft_putchar_fd('-', fd);
+		nb *= -1;
 	}
-	return (s);
-}
-
-static void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-void	*ft_calloc(size_t n, size_t size)
-{
-	char	*ptr;
-
-	ptr = (char *) malloc((n * size) * sizeof(char));
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, (n * size));
-	return (ptr);
+	if (nb >= 10)
+		ft_putnbr_fd((n / 10), fd);
+	ft_putchar_fd((n % 10 + '0'), fd);
 }

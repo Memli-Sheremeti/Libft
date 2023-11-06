@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:30:40 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/02 15:23:16 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:33:46 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 //#include <stdio.h>
 //#include <string.h>
 //#include <bsd/string.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

@@ -6,21 +6,11 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 08:37:45 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/03 11:37:19 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:39:49 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static	size_t	ft_strlen(const char *str)
-{
-	const char	*s;
-
-	s = str;
-	while (*s)
-		s++;
-	return (s - str);
-}
 
 static	int	ft_ischarset(char const c, char const *set)
 {

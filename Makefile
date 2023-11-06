@@ -6,7 +6,7 @@
 #    By: mshereme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 17:12:36 by mshereme          #+#    #+#              #
-#    Updated: 2023/11/03 11:21:59 by mshereme         ###   ########.fr        #
+#    Updated: 2023/11/06 15:34:40 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,21 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
        ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
        ft_putnbr_fd.c
 
+SRCS_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c\
+	 ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c\
+	 ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+
 HEAD = libft.h
 
 OBJS = ${SRCS:.c=.o}
+
+OBJS_B = ${SRCS_B:.c=.o}
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-RM = rm -rf 
+RM = rm -rf
 
 AR = ar -rc
 
@@ -43,11 +49,15 @@ ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 	${LIB} ${NAME}
 
+bonus: ${NAME} ${OBJS_B}
+	${AR} ${NAME} ${OBJS_B}
+	${LIB} ${NAME}
+
 clean : 
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${OBJS_B}
 
 fclean : clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${bonus}
 
 re : fclean all
 
