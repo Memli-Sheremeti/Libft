@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:45:24 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/03 11:36:59 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:28:41 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ static	char	*ft_get_word(char const *s, char c)
 	char	*word;
 
 	i = 0;
+	j = 0;
 	while (s[i] != '\0' && ft_ischarset(s[i], c) == 0)
 		i++;
-	word = (char *) malloc(i + 1 * sizeof(char));
+	word = (char *) malloc((i + 1) * sizeof(char));
 	if (!word)
 		return (NULL);
-	j = 0;
 	while (j < i)
 	{
 		word[j] = s[j];
@@ -70,6 +70,7 @@ static void	ft_inscribe(char **tab, char const *s, char c)
 	int	i;
 
 	i = 0;
+	words_check = 0;
 	while (*s != '\0')
 	{
 		while (ft_ischarset(*s, c) == 0 && *s != '\0')
@@ -78,10 +79,8 @@ static void	ft_inscribe(char **tab, char const *s, char c)
 			s++;
 		}
 		if (words_check > 0)
-		{
-			tab[i++] = ft_get_word((s - words_check), c);
-			words_check = 0;
-		}
+			tab[i++] = ft_get_word(s - words_check, c);
+		words_check = 0;
 		while (ft_ischarset(*s, c) == 1 && *s != '\0')
 			s++;
 	}
@@ -94,8 +93,8 @@ char	**ft_split(char const *s, char c)
 	int		words;
 
 	words = 0;
-	if (!*s)
-		return (NULL);
+	if (!s)
+		return (0);
 	words = ft_count_words(s, c);
 	tab = (char **) malloc((words + 1) * sizeof(char *));
 	if (!tab)
@@ -103,3 +102,28 @@ char	**ft_split(char const *s, char c)
 	ft_inscribe(tab, s, c);
 	return (tab);
 }
+
+/*#include <stdio.h>
+
+int     main(int ac, char **av)
+{
+        char    charset = ' ';
+        char    **tab;
+	int	i = 0;
+	(void) ac;
+
+        tab = ft_split(av[1], charset);
+        printf("%s\n", tab[0]);
+      	printf("%s\n", tab[1]);
+       	printf("%s\n", tab[2]);
+       	printf("%s\n", tab[3]);
+	while (i < 4)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab[0]);
+	free(tab);
+        return (0);
+}
+*/

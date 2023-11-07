@@ -6,25 +6,45 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:57:42 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/02 17:15:16 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:40:36 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*ft_del(char *str)
+{
+	str = malloc(sizeof(char));
+	if (!str)
+		return (NULL);
+	str[0] = '\0';
+	return (str);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	char			*sub;
+	char	*str;
+	size_t	length;
+	size_t	index;
 
-	sub = (char *) malloc(len + 1 * sizeof(char));
-	if (!sub)
-		return (NULL);
-	i = 0;
-	while (s[start + i])
+	length = ft_strlen(s);
+	index = 0;
+	str = NULL;
+	if (length < start)
 	{
-		sub[i] = s[start + i];
-		i++;
+		str = ft_del(str);
+		return (str);
 	}
-	return (sub);
+	else if (s)
+	{
+		str = malloc((len + 1) * sizeof(char));
+		while (index < len && index + start < length)
+		{
+			str[index] = s[start + index];
+			index++;
+		}
+		str[index] = '\0';
+		return (str);
+	}
+	return (NULL);
 }
