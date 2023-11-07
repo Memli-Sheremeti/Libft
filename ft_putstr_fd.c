@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:30:39 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/06 16:40:29 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/07 18:00:19 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s != '\0')
 	{
 		ft_putchar_fd(*s, fd);

@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:34 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/03 11:35:39 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:54:18 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 	char	*str;
 
 	str = (char *)s;
-	if (!*to_find)
+	if (!str && !len)
+		return (0);
+	if (!*to_find || to_find == str)
 		return (str);
 	pos = 0;
 	while (str[pos] != '\0' && pos < len)
