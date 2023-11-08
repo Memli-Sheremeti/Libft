@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:34 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/07 17:54:18 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/07 18:12:43 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 
 	str = (char *)s;
 	if (!str && !len)
-		return (0);
+		return (NULL);
 	if (!*to_find || to_find == str)
 		return (str);
 	pos = 0;
@@ -37,7 +37,7 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 		}
 		pos++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*#include <stdio.h>

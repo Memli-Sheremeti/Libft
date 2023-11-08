@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:27:19 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/07 10:34:33 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:20:16 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	len = ft_len_nb(nb);
-	str = (char *) malloc(len + 1 * sizeof(char));
+	str = (char *) malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_inscribe(nb, str, len);

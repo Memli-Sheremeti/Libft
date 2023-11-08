@@ -6,7 +6,7 @@
 #    By: mshereme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 17:12:36 by mshereme          #+#    #+#              #
-#    Updated: 2023/11/07 15:53:45 by mshereme         ###   ########.fr        #
+#    Updated: 2023/11/08 13:09:47 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,19 +49,19 @@ ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 	${LIB} ${NAME}
 
-bonus: ${NAME} ${OBJS_B}
-	${AR} ${NAME} ${OBJS_B}
+bonus: ${OBJS} ${OBJS_B}
+	${AR} ${NAME} ${OBJS} ${OBJS_B}
 	${LIB} ${NAME}
 clean : 
 	${RM} ${OBJS} ${OBJS_B}
 
 fclean : clean
-	${RM} ${NAME} ${bonus}
+	${RM} ${NAME}
 
 re : fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) ${SRCS_B}
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_B)
 
-.PHONY : all clean fclean re
+.PHONY : ${NAME} all bonus clean fclean re
