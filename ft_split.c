@@ -6,17 +6,24 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:45:24 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/07 12:28:41 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:37:36 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_ischarset(char s, char c)
+static int	ft_free(char **tab)
 {
-	if (s == c)
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (1);
 }
 
 static int	ft_count_words(char const *s, char c)
@@ -30,12 +37,12 @@ static int	ft_count_words(char const *s, char c)
 	bit = 0;
 	while (s[i] != '\0')
 	{
-		if (ft_ischarset(s[i], c) == 0 && bit == 0)
+		if (s[i] != c && bit == 0)
 		{
 			words++;
 			bit = 1;
 		}
-		if (ft_ischarset(s[i], c) == 1 && bit == 1)
+		if (s[i] == c && bit == 1)
 			bit = 0;
 		i++;
 	}
@@ -50,7 +57,7 @@ static	char	*ft_get_word(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	while (s[i] != '\0' && ft_ischarset(s[i], c) == 0)
+	while (s[i] != '\0' && s[i] != c)
 		i++;
 	word = (char *) malloc((i + 1) * sizeof(char));
 	if (!word)
@@ -73,16 +80,21 @@ static void	ft_inscribe(char **tab, char const *s, char c)
 	words_check = 0;
 	while (*s != '\0')
 	{
-		while (ft_ischarset(*s, c) == 0 && *s != '\0')
+		while (*s != c && *s != '\0')
 		{
 			words_check++;
 			s++;
 		}
 		if (words_check > 0)
-			tab[i++] = ft_get_word(s - words_check, c);
+		{
+			tab[i] = ft_get_word(s - words_check, c);
+			if (tab[i] == NULL && ft_free(tab))
+				return ;
+		i++;
+		}
 		words_check = 0;
-		while (ft_ischarset(*s, c) == 1 && *s != '\0')
-			s++;
+		while (*s == c && *s != '\0')
+		s++;
 	}
 	tab[i] = 0;
 }

@@ -6,7 +6,7 @@
 #    By: mshereme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 17:12:36 by mshereme          #+#    #+#              #
-#    Updated: 2023/11/08 13:09:47 by mshereme         ###   ########.fr        #
+#    Updated: 2023/11/14 13:47:26 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,4 @@ fclean : clean
 
 re : fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) ${SRCS_B}
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_B)
-
-.PHONY : ${NAME} all bonus clean fclean re
+.PHONY : all bonus clean fclean re
