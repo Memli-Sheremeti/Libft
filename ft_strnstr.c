@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:34 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/07 18:12:43 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/15 09:39:40 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,3 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 	}
 	return (NULL);
 }
-
-/*#include <stdio.h>
-#include <bsd/string.h>
-
-int     main(void)
-{
-        char str[] = "Nous test dans cette chaine de test";
-        char find[] = "test";
-
-        printf("ft:%s\n", ft_strnstr(str, find, 9));
-        //printf("cc:%s\n", strnstr(str, find, 60));
-
-        return (0);
-}
-*/

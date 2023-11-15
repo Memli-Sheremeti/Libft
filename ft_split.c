@@ -6,7 +6,7 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:45:24 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/14 13:37:36 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/15 09:36:15 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,28 +114,3 @@ char	**ft_split(char const *s, char c)
 	ft_inscribe(tab, s, c);
 	return (tab);
 }
-
-/*#include <stdio.h>
-
-int     main(int ac, char **av)
-{
-        char    charset = ' ';
-        char    **tab;
-	int	i = 0;
-	(void) ac;
-
-        tab = ft_split(av[1], charset);
-        printf("%s\n", tab[0]);
-      	printf("%s\n", tab[1]);
-       	printf("%s\n", tab[2]);
-       	printf("%s\n", tab[3]);
-	while (i < 4)
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab[0]);
-	free(tab);
-        return (0);
-}
-*/

@@ -6,13 +6,11 @@
 /*   By: mshereme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:41:29 by mshereme          #+#    #+#             */
-/*   Updated: 2023/11/07 17:50:54 by mshereme         ###   ########.fr       */
+/*   Updated: 2023/11/15 09:38:14 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
-//#include <bsd/string.h>
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
@@ -35,16 +33,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[i + len_d] = '\0';
 	return (len_s + len_d);
 }
-
-/*int	main()
-{
-	char	dst[2] = "a";
-	char	h_dst[2] = "a";
-	char	src[] = "ca va ?";
-
-	printf("%lu\n%s\n", ft_strlcat(dst, src, 4), dst);
-	printf("%lu\n%s\n", strlcat(h_dst, src, 4), h_dst);
-	printf("%lu\n%s\n", ft_strlcat(dst, src, 4), dst);
-
-}
-*/
